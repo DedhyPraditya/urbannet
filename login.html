@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="expires" content="-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Afzalnet - Log in</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+
+
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post" style="display: none">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+
+  <script src="/md5.js"></script>
+  <script>
+    function doLogin() {
+      try {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          "$(chap-id)" + document.login.username.value + "$(chap-challenge)"
+        );
+        document.sendin.submit();
+
+        // Tambahkan timeout untuk mengecek redirect
+        setTimeout(function () {
+          if (document.location.href === window.location.href) {
+            document.querySelector('.info').innerHTML = 'Koneksi timeout. Silakan coba lagi.';
+            document.querySelector('.info').classList.add('alert');
+          }
+        }, 5000);
+
+        return false;
+      } catch (error) {
+        document.querySelector('.info').innerHTML = 'Terjadi kesalahan. Silakan coba lagi.';
+        document.querySelector('.info').classList.add('alert');
+        return false;
+      }
+    }
+  </script>
+  $(endif)
+
+  <div class="ie-fixMinHeight">
+    <div class="main">
+      <div class="wrap animated fadeIn">
+
+        <!-- Dark Mode Toggle Button -->
+        <button id="darkModeToggle" class="dark-mode-toggle">
+          <span class="toggle-text">mode dark</span>
+          <span class="toggle-icon">🌙</span>
+        </button>
+
+        <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+          <input type="hidden" name="dst" value="$(link-orig)" />
+          <input type="hidden" name="popup" value="true" />
+
+
+
+          <!-- Logo Section -->
+          <div class="logo-section mb-4">
+            <h1 class="logo-title">URBAN<span class="logo-dot">.</span>NET</h1>
+          </div>
+
+          <p class="info $(if error)alert$(endif)">
+            $(if error == "")Silahkan Masukkan Kode Voucher Anda!!!
+            $(if trial == 'yes')<br />Free trial available,
+            <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)
+            $(endif) $(if error)$(error)$(endif)
+          </p>
+
+          <label>
+            <img class="ico" src="img/user.svg" alt="#" />
+            <input name="username" type="text" value="$(username)" placeholder="Kode Voucher" />
+          </label>
+
+          <input type="hidden" name="password" />
+
+          <input type="submit" value="Login" />
+
+          <!-- Voucher Cards -->
+          <div class="voucher-cards">
+            <div class="package-title">📶 Daftar Paket Voucher</div>
+
+            <div class="voucher-grid">
+              <div class="voucher-card" onclick="selectPackage(this, '2jam')">
+                <div class="voucher-price">1K</div>
+                <div class="voucher-duration">2 JAM</div>
+                <div class="voucher-rupiah">Rp 1.000</div>
+              </div>
+
+              <div class="voucher-card" onclick="selectPackage(this, '5jam')">
+                <div class="voucher-price">2K</div>
+                <div class="voucher-duration">5 JAM</div>
+                <div class="voucher-rupiah">Rp 2.000</div>
+              </div>
+
+              <div class="voucher-card" onclick="selectPackage(this, '8jam')">
+                <div class="voucher-price">3K</div>
+                <div class="voucher-duration">8 JAM</div>
+                <div class="voucher-rupiah">Rp 3.000</div>
+              </div>
+
+              <div class="voucher-card" onclick="selectPackage(this, '12jam')">
+                <div class="voucher-price">4K</div>
+                <div class="voucher-duration">12 JAM</div>
+                <div class="voucher-rupiah">Rp 4.000</div>
+              </div>
+
+              <div class="voucher-card" onclick="selectPackage(this, '1hari')">
+                <div class="voucher-price">5K</div>
+                <div class="voucher-duration">1 HARI</div>
+                <div class="voucher-rupiah">Rp 5.000</div>
+              </div>
+
+              <div class="voucher-card" onclick="selectPackage(this, '3hari')">
+                <div class="voucher-price">10K</div>
+                <div class="voucher-duration">3 HARI</div>
+                <div class="voucher-rupiah">Rp 10.000</div>
+              </div>
+
+              <div class="voucher-card" onclick="selectPackage(this, '7hari')">
+                <div class="voucher-price">20K</div>
+                <div class="voucher-duration">7 HARI</div>
+                <div class="voucher-rupiah">Rp 20.000</div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="footer-text">© 2026 URBAN.NET. All Rights Reserved.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

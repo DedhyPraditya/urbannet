@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.ie-fixMinHeight {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 100%;
+  max-width: 420px;
+}
+
+.wrap {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo Section */
+.logo-section {
+  margin-top: 25px;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.logo-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2d3748;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bruno Ace', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.logo-title:hover {
+  transform: scale(1.05);
+}
+
+.logo-dot {
+  color: #e74c3c;
+  -webkit-text-fill-color: #e74c3c;
+  animation: pulse 2s infinite;
+  margin: 0 1px;
+}
+
+.logo-subtitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-family: 'Bruno Ace', 'Poppins', sans-serif;
+}
+
+.logo-subtext {
+  font-size: 9px;
+  font-weight: 500;
+  color: #718096;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-family: 'Bruno Ace', 'Poppins', sans-serif;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.app-subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.location {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Tab Navigation */
+.tab-container {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 20px 0;
+  gap: 5px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background: transparent;
+  color: #666;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  color: white;
+}
+
+/* Info Message */
+.info {
+  background: rgba(71, 118, 230, 0.1);
+  color: #333;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border-left: 4px solid #4776E6;
+  text-align: left;
+}
+
+.info.alert {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border-left-color: #e74c3c;
+}
+
+.info a {
+  color: #4776E6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+/* Form Styling */
+label {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+label .ico {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 15px 15px 15px 50px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4776E6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(71, 118, 230, 0.1);
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(71, 118, 230, 0.3);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Voucher Cards */
+.voucher-cards {
+  margin: 20px 0;
+}
+
+.package-title {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.voucher-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.voucher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2c5f8a 100%);
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 14px 8px;
+  text-align: center;
+  /* Notch cutout - lubang lekukan sisi kiri & kanan */
+  -webkit-mask-image: radial-gradient(circle 9px at 0px 40%, transparent 6px, black 7px), radial-gradient(circle 9px at 100% 40%, transparent 6px, black 7px), linear-gradient(black, black);
+  -webkit-mask-composite: source-in;
+  mask-image: radial-gradient(circle 9px at 0px 40%, transparent 6px, black 7px), radial-gradient(circle 9px at 100% 40%, transparent 6px, black 7px), linear-gradient(black, black);
+  mask-composite: intersect;
+}
+
+.voucher-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.voucher-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.voucher-card.selected {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(71, 118, 230, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.voucher-price {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffd700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.voucher-price::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.3) 0px,
+    rgba(255, 255, 255, 0.3) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.voucher-duration {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  margin-top: 6px;
+}
+
+.voucher-rupiah {
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+}
+
+/* Voucher card tier colors */
+.voucher-card:nth-child(1) { background: linear-gradient(135deg, #0f4c75 0%, #1b6ca8 100%); }
+.voucher-card:nth-child(2) { background: linear-gradient(135deg, #1e3a5f 0%, #3b7dd8 100%); }
+.voucher-card:nth-child(3) { background: linear-gradient(135deg, #2b4162 0%, #12100e 100%); }
+.voucher-card:nth-child(4) { background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%); }
+.voucher-card:nth-child(5) { background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%); }
+.voucher-card:nth-child(6) { background: linear-gradient(135deg, #141e30 0%, #243b55 100%); }
+.voucher-card:nth-child(7) { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); grid-column: span 2; }
+
+/* Footer */
+.footer-text {
+  margin-top: 30px;
+  color: #888;
+  font-size: 12px;
+  font-family: 'Bruno Ace', 'Poppins', sans-serif;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+body.dark-mode .wrap {
+  background: rgba(64, 85, 105, 0.95);
+  color: white;
+}
+
+body.dark-mode .logo-title {
+  background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .logo-dot {
+  color: #f43f5e;
+  -webkit-text-fill-color: #f43f5e;
+}
+
+body.dark-mode .logo-subtitle {
+  color: #f8fafc;
+}
+
+body.dark-mode .logo-subtext {
+  color: #94a3b8;
+}
+
+body.dark-mode .app-title {
+  color: white;
+}
+
+body.dark-mode .app-subtitle {
+  color: #bdc3c7;
+}
+
+body.dark-mode .location {
+  color: #95a5a6;
+}
+
+body.dark-mode .tab-container {
+  background: #34495e;
+}
+
+body.dark-mode .tab {
+  color: #bdc3c7;
+}
+
+body.dark-mode input[type="text"] {
+  background: #34495e;
+  border-color: #4a5f7a;
+  color: white;
+}
+
+body.dark-mode input[type="text"]::placeholder {
+  color: #7f8c8d;
+}
+
+body.dark-mode input[type="text"]:focus {
+  background: #3d566e;
+}
+
+body.dark-mode .info {
+  background: rgba(52, 73, 94, 0.8);
+  color: #ecf0f1;
+  border-left-color: #3498db;
+}
+
+body.dark-mode .info a {
+  color: #74b9ff;
+}
+
+body.dark-mode .package-title {
+  color: white;
+}
+
+body.dark-mode .footer-text {
+  color: #95a5a6;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background: rgba(52, 73, 94, 0.9);
+  color: white;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background: rgba(52, 73, 94, 1);
+}
+
+/* Ripple Effect Animation */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .wrap {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .voucher-card {
+    padding: 10px 6px;
+  }
+
+  .voucher-price {
+    font-size: 20px;
+  }
+
+  .voucher-duration {
+    font-size: 11px;
+  }
+
+  .dark-mode-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .tab {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .wrap {
+    padding: 15px;
+  }
+
+  .voucher-card {
+    padding: 8px 4px;
+  }
+
+  .voucher-price {
+    font-size: 16px;
+  }
+
+  .voucher-rupiah {
+    font-size: 7px;
+  }
+
+  .voucher-duration {
+    font-size: 10px;
+  }
+}
