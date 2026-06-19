@@ -1,6 +1,33 @@
 // Global Variables
 let selectedPackage = null;
 
+// Price Modal
+function openPriceModal() {
+  const modal = document.getElementById('priceModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    modal.style.animation = 'noticeFadeIn 0.3s ease';
+  }
+}
+
+function closePriceModal() {
+  const modal = document.getElementById('priceModal');
+  if (modal) {
+    modal.style.animation = 'noticeFadeIn 0.25s ease reverse';
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 200);
+  }
+}
+
+// Close modal on overlay click
+document.addEventListener('click', function(e) {
+  const modal = document.getElementById('priceModal');
+  if (e.target === modal) {
+    closePriceModal();
+  }
+});
+
 // Script to automatically set the password field to the same value as the username field
 document
   .querySelector('form[name="login"]')

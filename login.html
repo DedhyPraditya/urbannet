@@ -87,65 +87,99 @@
 
           <input type="submit" value="Login" />
 
-          <!-- Voucher Cards -->
-          <div class="voucher-cards">
-            <div class="package-title">📶 Daftar Paket Voucher</div>
+          <!-- Price Button -->
+          <button type="button" class="price-btn" onclick="openPriceModal()">📶 Lihat Harga Voucher</button>
 
-            <div class="voucher-grid">
-              <div class="voucher-card" onclick="selectPackage(this, '2jam')">
-                <div class="voucher-price">1K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">2 JAM</div>
-                <div class="voucher-rupiah">Rp 1.000</div>
-              </div>
-
-              <div class="voucher-card" onclick="selectPackage(this, '5jam')">
-                <div class="voucher-price">2K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">5 JAM</div>
-                <div class="voucher-rupiah">Rp 2.000</div>
-              </div>
-
-              <div class="voucher-card" onclick="selectPackage(this, '8jam')">
-                <div class="voucher-price">3K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">8 JAM</div>
-                <div class="voucher-rupiah">Rp 3.000</div>
-              </div>
-
-              <div class="voucher-card" onclick="selectPackage(this, '12jam')">
-                <div class="voucher-price">4K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">12 JAM</div>
-                <div class="voucher-rupiah">Rp 4.000</div>
-              </div>
-
-              <div class="voucher-card" onclick="selectPackage(this, '1hari')">
-                <div class="voucher-price">5K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">1 HARI</div>
-                <div class="voucher-rupiah">Rp 5.000</div>
-              </div>
-
-              <div class="voucher-card" onclick="selectPackage(this, '3hari')">
-                <div class="voucher-price">10K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">3 HARI</div>
-                <div class="voucher-rupiah">Rp 10.000</div>
-              </div>
-
-              <div class="voucher-card" onclick="selectPackage(this, '7hari')">
-                <div class="voucher-price">20K</div>
-                <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
-                <div class="voucher-duration">7 HARI</div>
-                <div class="voucher-rupiah">Rp 20.000</div>
+          <!-- Info Card -->
+          <div class="info-card">
+            <div class="info-warning">
+              <span class="info-warn-icon">⚠️</span>
+              <div class="info-warn-text">
+                <strong>Jangan buang kode voucher anda</strong>
+                <span>sebelum limit waktu habis</span>
               </div>
             </div>
-
+            <div class="info-rows">
+              <div class="info-row"><span>📱</span> 1 Voucher = <strong>1 Perangkat</strong></div>
+              <div class="info-row"><span>📶</span> Signal wifi minimal <strong>3 bar</strong></div>
+              <div class="info-row"><span>🔒</span> Matikan <strong>DNS Pribadi & VPN</strong></div>
+            </div>
+            <div class="info-contact">
+              <span>💬</span>
+              <span>Kendala? <a href="https://wa.me/6282194538699" class="wa-link">Chat WhatsApp Admin</a></span>
+            </div>
           </div>
 
           <p class="footer-text">© 2026 URBAN.NET. All Rights Reserved.</p>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voucher Price Modal -->
+  <div id="priceModal" class="notice-overlay hidden">
+    <div class="price-modal">
+      <button class="notice-close" onclick="closePriceModal()">&times;</button>
+
+      <div class="price-header">
+        <div class="notice-logo">URBAN<span style="color:#e74c3c">.</span>NET</div>
+        <div class="price-subtitle">📶 Daftar Harga Voucher</div>
+      </div>
+
+      <div class="voucher-grid">
+        <div class="voucher-card" onclick="selectPackage(this, '2jam'); closePriceModal();">
+          <div class="voucher-price">1K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">2 JAM</div>
+          <div class="voucher-rupiah">Rp 1.000</div>
+        </div>
+
+        <div class="voucher-card" onclick="selectPackage(this, '5jam'); closePriceModal();">
+          <div class="voucher-price">2K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">5 JAM</div>
+          <div class="voucher-rupiah">Rp 2.000</div>
+        </div>
+
+        <div class="voucher-card" onclick="selectPackage(this, '8jam'); closePriceModal();">
+          <div class="voucher-price">3K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">8 JAM</div>
+          <div class="voucher-rupiah">Rp 3.000</div>
+        </div>
+
+        <div class="voucher-card" onclick="selectPackage(this, '12jam'); closePriceModal();">
+          <div class="voucher-price">4K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">12 JAM</div>
+          <div class="voucher-rupiah">Rp 4.000</div>
+        </div>
+
+        <div class="voucher-card" onclick="selectPackage(this, '1hari'); closePriceModal();">
+          <div class="voucher-price">5K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">1 HARI</div>
+          <div class="voucher-rupiah">Rp 5.000</div>
+        </div>
+
+        <div class="voucher-card" onclick="selectPackage(this, '3hari'); closePriceModal();">
+          <div class="voucher-price">10K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">3 HARI</div>
+          <div class="voucher-rupiah">Rp 10.000</div>
+        </div>
+
+        <div class="voucher-card" onclick="selectPackage(this, '7hari'); closePriceModal();">
+          <div class="voucher-price">20K</div>
+          <div class="voucher-cut"><span class="cut-line"></span><span class="cut-scissors">✂</span></div>
+          <div class="voucher-duration">7 HARI</div>
+          <div class="voucher-rupiah">Rp 20.000</div>
+        </div>
+      </div>
+
+      <div class="price-footer-info">
+        <div>🏠 Pasang modem rumah? <a href="https://wa.me/6282194538699" class="wa-link">WA Admin</a> <small>(Free instalasi)</small></div>
+        <div>🛒 Beli voucher langsung: <strong>082194538699</strong> <small>(DANA/QRIS)</small></div>
       </div>
     </div>
   </div>
